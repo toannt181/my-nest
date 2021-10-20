@@ -9,9 +9,12 @@ import {
   Redirect,
 } from '@nestjs/common';
 import { CreateDogDto } from './dogs.dto';
+import { DogsService } from './dogs.service';
 
 @Controller('dogs')
 export class DogsController {
+  constructor(private dogService: DogsService) {}
+
   @Get()
   @Redirect('https://nestjs.com', 301)
   findAll() {
