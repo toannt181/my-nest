@@ -16,7 +16,6 @@ export class DogsController {
   constructor(private dogService: DogsService) {}
 
   @Get()
-  @Redirect('https://nestjs.com', 301)
   findAll() {
     return {
       name: 'Toan',
