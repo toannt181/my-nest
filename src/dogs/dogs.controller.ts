@@ -10,6 +10,7 @@ import {
   ParseIntPipe,
   Post,
   Redirect,
+  SetMetadata,
   UseGuards,
 } from '@nestjs/common';
 import { CreateDogDto } from './dogs.dto';
@@ -18,6 +19,7 @@ import { DogsService } from './dogs.service';
 
 @Controller('dogs')
 @UseGuards(DogGuard)
+@SetMetadata('roles', ['admin'])
 export class DogsController {
   constructor(private dogService: DogsService) {}
 
@@ -31,8 +33,8 @@ export class DogsController {
   }
 
   @Get(':id')
-  getOne(@Param('id', ParseIntPipe) params) {
-    return params;
+  getOne(@Param('id', ParseIntPipe) id) {
+    return this.dogService.findOne(id);
   }
 
   @Post(':id')
