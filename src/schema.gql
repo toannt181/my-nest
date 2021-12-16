@@ -1,0 +1,20 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Dog {
+  id: Int!
+  name: String
+  user: User!
+  userId: Int!
+}
+
+type Query {
+  getDog(id: Int!, name: String!): Dog!
+}
+
+type User {
+  age: Float
+  id: Int!
+  name: String!
+}
